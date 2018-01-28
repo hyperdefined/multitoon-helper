@@ -1,7 +1,7 @@
 # Multitoon Helper
 Multitoon Helper is a program aimed at users who have a lot of TTR accounts. This program can track the accounts and allow for more easier time logging into them. This program also comes with the famous Multicontroller (the program downloads it from the offical website). 
 
-![screenshot1](https://raw.githubusercontent.com/hyperdefined/images/master/github/multitoon-helper/screenshot1.png)
+![screenshot](https://raw.githubusercontent.com/hyperdefined/images/master/github/multitoon-helper/screenshot.png)
 # Prerequisites 
 Before you use this program, you are going to need [Panda3D-1.9.0](https://www.panda3d.org/download.php?sdk&version=1.9.0). Make sure it installs in the default directory.
 # Setting Up
