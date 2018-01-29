@@ -19,7 +19,7 @@ This means that your accounts.json is not a valid json file. Check the formattin
 Make sure it is named correctly and it's in the `config` folder.
 # FAQ
 ### Is this program allowed?
-Yes. TTR allows 3rd party launchers. They don't allow custom game engines.
+Yes. TTR allows third-party launchers. They don't allow custom game engines.
 ### Does this support 2FA and Toonguard?
 Yes. When you double click an account, it will ask your for the code on the prompt.
 # Libraries Used
