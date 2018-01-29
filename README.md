@@ -17,8 +17,11 @@ There was some error. Run the .jar from command prompt like this: `java -jar Mul
 This means that your accounts.json is not a valid json file. Check the formatting.
 ### My accounts.json can't be found.
 Make sure it is named correctly and it's in the `config` folder.
-### Nothing happens when I double click an account.
-Either the username or password is incorrect.
+# FAQ
+### Is this program allowed?
+Yes. TTR allows 3rd party launchers. They don't allow custom game engines.
+### Does this support 2FA and Toonguard?
+Yes. When you double click an account, it will ask your for the code on the prompt.
 # Libraries Used
 * [Apache Commons IO](https://commons.apache.org/proper/commons-io/)
 * [JSON in Java](https://mvnrepository.com/artifact/org.json/json/20140107)

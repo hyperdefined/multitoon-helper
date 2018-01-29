@@ -23,7 +23,7 @@ public class VersionCheckerMessage {
 				pane.setLayout(new GridLayout(2, 1));
 				frame.add(pane);
 				JLabel msg1 = new JLabel("An update for this program is available. Please download the new update here:");
-				JLabel msg2 = new JLabel("<html><a href='https://github.com/hyperdefined/multitoon-helper/releases'>Download from GitHub</a>.</html>");
+				JLabel msg2 = new JLabel("<html><a href=''>Download from GitHub</a>.</html>");
 				pane.add(msg1);
 				pane.add(msg2);
 
