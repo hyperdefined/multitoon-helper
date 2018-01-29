@@ -59,7 +59,7 @@ public class MainWindow {
 					String password = AccountManager.passwords.get(index);
 
 					try {
-						Process process = Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" scripts\\login.bat" + " " + username + " " + password);
+						Process process = Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" scripts\\login.vbs" + " " + username + " " + password);
 					} catch(IOException e) {
 						e.printStackTrace();
 					}
