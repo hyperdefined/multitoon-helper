@@ -41,7 +41,7 @@ public class MainWindow {
 		accounts.setAlignmentX(Component.CENTER_ALIGNMENT);
 		accounts.setAlignmentX(Component.CENTER_ALIGNMENT);
 		pane.add(accounts);
-		JList accountList = new JList(AccountManager.usernames.toArray());
+		JList accountList = new JList(AccountManager.labels.toArray());
 		DefaultListCellRenderer renderer = (DefaultListCellRenderer) accountList.getCellRenderer();
 		renderer.setHorizontalAlignment(SwingConstants.CENTER);
 		accountList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -128,6 +128,7 @@ public class MainWindow {
 		}
 		AccountManager.getAccountsUsernames();
 		AccountManager.getAccountsPasswords();
+		AccountManager.getAccountsLabels();
 		AccountManagerMessage.createFrame();
 
 		Downloader.doesFileExist();

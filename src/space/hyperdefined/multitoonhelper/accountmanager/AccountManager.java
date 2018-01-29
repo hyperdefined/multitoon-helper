@@ -17,6 +17,7 @@ public class AccountManager {
 
 	public static List < String > usernames = new ArrayList < String > ();
 	public static List < String > passwords = new ArrayList < String > ();
+	public static List < String > labels = new ArrayList < String > ();
 
 	public static boolean jsonError;
 	public static boolean fileNotFound;
@@ -69,6 +70,30 @@ public class AccountManager {
 		}
 		catch(IOException ex) {
 			passwords.clear();
+			MainWindow.logger.warning("The file account.json was not found.");
+			fileNotFound = true;
+			programLoads = false;
+		}
+	}
+	public static void getAccountsLabels() throws JSONException,
+	IOException {
+		try {
+			String content = readFile("config/accounts.json", StandardCharsets.UTF_8);
+			JSONObject json = new JSONObject(content);
+			labels = new ArrayList < >();
+			for (int i = 0; i < json.length(); i++) {
+				JSONObject user = json.getJSONObject(i + "");
+				labels.add(user.getString("label"));
+			}
+		}
+		catch(JSONException ex) {
+			labels.clear();
+			MainWindow.logger.warning("Error reading accounts.json. Check the formatting.");
+			jsonError = true;
+			programLoads = false;
+		}
+		catch(IOException ex) {
+			labels.clear();
 			MainWindow.logger.warning("The file account.json was not found.");
 			fileNotFound = true;
 			programLoads = false;
