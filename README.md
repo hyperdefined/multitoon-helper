@@ -14,6 +14,8 @@ alt="video" width="240" height="180" border="10" /></a>
 After you added your account, restart the program. If the JSON file is correct, then your username(s) will be listed. Double click one to login. The game will now launch with that account. You can launch as many accounts as you wish.
 # Download
 The download can be found on the [release](https://github.com/hyperdefined/multitoon-helper/releases) page. Make a new folder and extract the contents of the zip file. Run Multitoon-Helper.jar to use.
+# Contributing
+If you have any ideas or better ways to handle this program, feel free to! The code is not the best, it's one of my first programs that actually works.
 # Troubleshooting
 ### Nothing happens when I run Multitoon-Helper.jar!
 There was some error. Run the .jar from command prompt like this: `java -jar Multitoon-Helper.jar`. That will show an error message. Feel free to create an issue.
