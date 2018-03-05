@@ -42,7 +42,7 @@ class TTRQuickLauncher:
             if token == None:
                 print "No queue token was given. This is not supposed to be possible!"
             else:
-                print "You're in %s in line. ETA: %s\n" % (position, eta)
+                print "Login successful. Game is launching."
                 time.sleep(1)
                 queueRequest = urllib.urlencode({'queueToken': token})
                 self.postRequest(queueRequest)
