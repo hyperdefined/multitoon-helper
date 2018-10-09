@@ -149,6 +149,7 @@ public class MainWindow {
 	}
 
 	public static void main(String[] args) throws Exception {
+		
 		File logFile = new File("log.txt");
 		if (logFile.exists() && logFile.isFile()) {
 			logFile.delete();
@@ -184,5 +185,11 @@ public class MainWindow {
 				createAndShowGUI();
 			}
 		});
+		
+		try {
+			Process process = Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" java -jar Updater.jar");
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
