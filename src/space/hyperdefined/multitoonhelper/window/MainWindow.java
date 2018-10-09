@@ -2,6 +2,7 @@ package space.hyperdefined.multitoonhelper.window;
 
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +10,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -84,6 +87,43 @@ public class MainWindow {
 		controller.setAlignmentX(Component.CENTER_ALIGNMENT);
 		controller.setMaximumSize(new Dimension(300, controller.getMinimumSize().height));
 		pane.add(controller);
+		
+		JButton click = new JButton("Multi-Click");
+		click.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Process process = Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" programs\\Multi-Click.exe");
+				} catch(IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+
+		});
+		click.setAlignmentX(Component.CENTER_ALIGNMENT);
+		click.setMaximumSize(new Dimension(300, click.getMinimumSize().height));
+		pane.add(click);	
+		
+		JButton toonhq = new JButton("ToonHQ.org");
+		toonhq.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Desktop desktop=null;
+					if (Desktop.isDesktopSupported()) {
+					    desktop = Desktop.getDesktop();
+					}
+					if(desktop.isSupported(Desktop.Action.BROWSE))
+					    desktop.browse(new URI("https://toonhq.org"));
+				 } catch (URISyntaxException ex) {
+				     
+				 } catch (IOException ex) {
+				     
+				 }
+			}
+
+		});
+		toonhq.setAlignmentX(Component.CENTER_ALIGNMENT);
+		toonhq.setMaximumSize(new Dimension(300, toonhq.getMinimumSize().height));
+		pane.add(toonhq);
 	}
 	private static void createAndShowGUI() {
 		//Create and set up the window.

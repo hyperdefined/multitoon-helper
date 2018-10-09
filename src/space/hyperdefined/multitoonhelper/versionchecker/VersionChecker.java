@@ -17,7 +17,7 @@ public class VersionChecker implements Runnable {
 
 	public void run() {
 		InputStream in =null;
-		try { in =new URL("https://cdn.rawgit.com/hyperdefined/multitoon-helper/master/version").openStream();
+		try { in =new URL("https://raw.githubusercontent.com/hyperdefined/multitoon-helper/master/version").openStream();
 
 		}
 		catch(MalformedURLException e) {
