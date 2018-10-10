@@ -6,4 +6,6 @@ public class Reference {
 	
 	public static String PATCHES_URL = "http://s3.amazonaws.com/download.toontownrewritten.com/patches/";
 	
+	public static String INSTALL_DIR = "";
+	
 }
