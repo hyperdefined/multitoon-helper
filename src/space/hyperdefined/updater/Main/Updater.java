@@ -15,6 +15,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.Charset;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream;
@@ -109,6 +110,11 @@ public class Updater {
 			                    
 			                }
 			                
+			                else
+			                {
+			                	System.out.println(content + " is up to date! Skipping...");
+			                }
+			                
 			    		    
 			    		} else {
 			    		    // It doesn't exist, do nothing 
@@ -162,8 +168,11 @@ public class Updater {
 		
 		final File folder = new File(Reference.INSTALL_DIR);
 		listFilesForFolder(folder);
-		
+	
 		System.out.println("Finished checking for updates!");
+		
+		TimeUnit.SECONDS.sleep(5);
+		
 		System.exit(0);
 	}
 }
