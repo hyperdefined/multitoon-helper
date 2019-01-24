@@ -53,13 +53,11 @@ public class Updater {
 			            
 			        } else {
 			        	
-			            //System.out.println(fileEntry.getName());
 			    		JSONObject json = readJsonFromUrl(Reference.UPDATE_URL);
 			    		
 			    		String content = new String (fileEntry.getName());
 			    		
-			    		if(json.has(content)){
-			    			
+			    		if(json.has(content) && !fileEntry.getPath().contains("logs") && !fileEntry.getPath().contains("resources") && !fileEntry.getPath().contains("screenshots")){
 				    		JSONObject filename = json.getJSONObject(content);
 			    		    String hash = filename.getString("hash");
 			    		    

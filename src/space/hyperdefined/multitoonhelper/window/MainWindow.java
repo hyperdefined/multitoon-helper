@@ -174,10 +174,10 @@ public class MainWindow {
 
 		Downloader.doesFileExist();
 		if (Downloader.doesFileExist) {
-			logger.info("Controller was found. This is not an issue.");
+			//logger.info("Controller was found. This is not an issue.");
 		} else {
 			Downloader.downloadFile();
-			logger.info("Controller was not found, downloading... This is not an issue.");
+			logger.info("Controller was not found, downloading...");
 		}
 		fh.close();
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
