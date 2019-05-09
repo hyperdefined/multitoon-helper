@@ -30,7 +30,7 @@ public class VersionCheckerMessage {
 				msg2.addMouseListener(new MouseAdapter() {@Override
 					public void mouseClicked(MouseEvent e) {
 						try {
-							URI url = new URI("https://github.com/hyperdefined/multitoon-helper/releases/tag/" + VersionChecker.latestVersion);
+							URI url = new URI("https://github.com/hypertjs/multitoon-helper/releases/tag/" + VersionChecker.latestVersion);
 							Desktop.getDesktop().browse(url);
 						} catch(URISyntaxException | IOException ex) {
 

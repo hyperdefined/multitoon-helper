@@ -36,160 +36,157 @@ import space.hyperdefined.multitoonhelper.versionchecker.VersionCheckerMessage;
 
 public class MainWindow {
 
-	public static final Logger logger = Logger.getLogger(MainWindow.class.getName());
+    public static final Logger logger = Logger.getLogger(MainWindow.class.getName());
 
-	public static void addComponentsToPane(Container pane) {
-		pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
-		JLabel accounts = new JLabel("Accounts (double click)");
-		accounts.setAlignmentX(Component.CENTER_ALIGNMENT);
-		accounts.setAlignmentX(Component.CENTER_ALIGNMENT);
-		pane.add(accounts);
-		JList accountList = new JList(AccountManager.labels.toArray());
-		DefaultListCellRenderer renderer = (DefaultListCellRenderer) accountList.getCellRenderer();
-		renderer.setHorizontalAlignment(SwingConstants.CENTER);
-		accountList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		accountList.setLayoutOrientation(JList.VERTICAL);
-		JScrollPane scrollBar = new JScrollPane(accountList);
-		scrollBar.setAlignmentX(Component.CENTER_ALIGNMENT);
-		pane.add(scrollBar);
-		accountList.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent evt) {
-				JList list = (JList) evt.getSource();
-				if (evt.getClickCount() == 2) {
+    public static void addComponentsToPane(Container pane) {
+        pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
+        JLabel accounts = new JLabel("Accounts (double click)");
+        accounts.setAlignmentX(Component.CENTER_ALIGNMENT);
+        accounts.setAlignmentX(Component.CENTER_ALIGNMENT);
+        pane.add(accounts);
+        JList accountList = new JList(AccountManager.labels.toArray());
+        DefaultListCellRenderer renderer = (DefaultListCellRenderer) accountList.getCellRenderer();
+        renderer.setHorizontalAlignment(SwingConstants.CENTER);
+        accountList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        accountList.setLayoutOrientation(JList.VERTICAL);
+        JScrollPane scrollBar = new JScrollPane(accountList);
+        scrollBar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        pane.add(scrollBar);
+        accountList.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                JList list = (JList) evt.getSource();
+                if (evt.getClickCount() == 2) {
 
-					int index = list.getSelectedIndex();
-					String username = AccountManager.usernames.get(index);
-					String password = AccountManager.passwords.get(index);
+                    int index = list.getSelectedIndex();
+                    String username = AccountManager.usernames.get(index);
+                    String password = AccountManager.passwords.get(index);
 
-					try {
-						Process process = Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" scripts\\login.bat" + " " + username + " " + password);
-					} catch(IOException e) {
-						e.printStackTrace();
-					}
-				} else {}
-			}
-		});
-		JLabel programs = new JLabel("Extras");
-		programs.setAlignmentX(Component.CENTER_ALIGNMENT);
-		programs.setAlignmentX(Component.CENTER_ALIGNMENT);
-		pane.add(programs);
-		JButton controller = new JButton("Multicontroller");
-		controller.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Process process = Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" programs\\Controller.exe");
-				} catch(IOException e1) {
-					e1.printStackTrace();
-				}
-			}
+                    try {
+                        Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" scripts\\login.bat" + " " + username + " " + password);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        JLabel programs = new JLabel("Extras");
+        programs.setAlignmentX(Component.CENTER_ALIGNMENT);
+        programs.setAlignmentX(Component.CENTER_ALIGNMENT);
+        pane.add(programs);
+        JButton controller = new JButton("Multicontroller");
+        controller.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" programs\\Controller.exe");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
 
-		});
-		controller.setAlignmentX(Component.CENTER_ALIGNMENT);
-		controller.setMaximumSize(new Dimension(300, controller.getMinimumSize().height));
-		pane.add(controller);
-		
-		JButton click = new JButton("Multi-Click");
-		click.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Process process = Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" programs\\Multi-Click.exe");
-				} catch(IOException e1) {
-					e1.printStackTrace();
-				}
-			}
+        });
+        controller.setAlignmentX(Component.CENTER_ALIGNMENT);
+        controller.setMaximumSize(new Dimension(300, controller.getMinimumSize().height));
+        pane.add(controller);
 
-		});
-		click.setAlignmentX(Component.CENTER_ALIGNMENT);
-		click.setMaximumSize(new Dimension(300, click.getMinimumSize().height));
-		pane.add(click);	
-		
-		JButton toonhq = new JButton("ToonHQ.org");
-		toonhq.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Desktop desktop=null;
-					if (Desktop.isDesktopSupported()) {
-					    desktop = Desktop.getDesktop();
-					}
-					if(desktop.isSupported(Desktop.Action.BROWSE))
-					    desktop.browse(new URI("https://toonhq.org"));
-				 } catch (URISyntaxException ex) {
-				     
-				 } catch (IOException ex) {
-				     
-				 }
-			}
+        JButton click = new JButton("Multi-Click");
+        click.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" programs\\Multi-Click.exe");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
 
-		});
-		toonhq.setAlignmentX(Component.CENTER_ALIGNMENT);
-		toonhq.setMaximumSize(new Dimension(300, toonhq.getMinimumSize().height));
-		pane.add(toonhq);
-	}
-	private static void createAndShowGUI() {
-		//Create and set up the window.
-		JFrame frame = new JFrame(Reference.title + " " + Reference.version);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
+        });
+        click.setAlignmentX(Component.CENTER_ALIGNMENT);
+        click.setMaximumSize(new Dimension(300, click.getMinimumSize().height));
+        pane.add(click);
 
-		//Set up the content pane.
-		addComponentsToPane(frame.getContentPane());
+        JButton toonhq = new JButton("ToonHQ.org");
+        toonhq.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Desktop desktop = null;
+                    if (Desktop.isDesktopSupported()) {
+                        desktop = Desktop.getDesktop();
+                    }
+                    if (desktop.isSupported(Desktop.Action.BROWSE))
+                        desktop.browse(new URI("https://toonhq.org"));
+                } catch (URISyntaxException ex)
 
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		}
-		catch(Exception ex) {
+                {
 
-}
+                } catch (IOException ex) {
 
-		if (AccountManager.programLoads == true) {
-			frame.pack();
-			frame.setSize(300, 400);
-			frame.setVisible(true);
-		} else {}
-	}
+                }
+            }
 
-	public static void main(String[] args) throws Exception {
-		
-		File logFile = new File("log.txt");
-		if (logFile.exists() && logFile.isFile()) {
-			logFile.delete();
-		}
+        });
+        toonhq.setAlignmentX(Component.CENTER_ALIGNMENT);
+        toonhq.setMaximumSize(new Dimension(300, toonhq.getMinimumSize().height));
+        pane.add(toonhq);
+    }
+    private static void createAndShowGUI() {
+        JFrame frame = new JFrame(Reference.title + " " + Reference.version);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
 
-		FileHandler fh = new FileHandler("log.txt", true);
-		SimpleFormatter sf = new SimpleFormatter();
-		fh.setFormatter(sf);
-		logger.addHandler(fh);
+        addComponentsToPane(frame.getContentPane());
 
-		VersionChecker checker = new VersionChecker();
-		checker.run();
-		checker.getLatestVersion();
-		if (!checker.latestVersion.equals(Reference.version)) {
-			checker.isLatestVesion = false;
-			VersionCheckerMessage.createFrame();
-		}
-		AccountManager.getAccountsUsernames();
-		AccountManager.getAccountsPasswords();
-		AccountManager.getAccountsLabels();
-		AccountManagerMessage.createFrame();
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception ex) {
 
-		Downloader.doesFileExist();
-		if (Downloader.doesFileExist) {
-			//logger.info("Controller was found. This is not an issue.");
-		} else {
-			Downloader.downloadFile();
-			logger.info("Controller was not found, downloading...");
-		}
-		fh.close();
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				createAndShowGUI();
-			}
-		});
-		
-		try {
-			Process process = Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" java -jar Updater.jar");
-		} catch(IOException e) {
-			e.printStackTrace();
-		}
-	}
+        }
+
+        if (AccountManager.programLoads == true) {
+            frame.pack();
+            frame.setSize(300, 400);
+            frame.setVisible(true);
+        } else {}
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        File logFile = new File("log.txt");
+        if (logFile.exists() && logFile.isFile()) {
+            logFile.delete();
+        }
+
+        FileHandler fh = new FileHandler("log.txt", true);
+        SimpleFormatter sf = new SimpleFormatter();
+        fh.setFormatter(sf);
+        logger.addHandler(fh);
+
+        VersionChecker checker = new VersionChecker();
+        checker.run();
+        checker.getLatestVersion();
+        if (!checker.latestVersion.equals(Reference.version)) {
+            checker.isLatestVesion = false;
+            VersionCheckerMessage.createFrame();
+        }
+        AccountManager.getAccountsUsernames();
+        AccountManager.getAccountsPasswords();
+        AccountManager.getAccountsLabels();
+        AccountManagerMessage.createFrame();
+
+        Downloader.doesFileExist();
+        if (Downloader.doesFileExist) {} else {
+            Downloader.downloadFile();
+            logger.info("Controller was not found, downloading...");
+        }
+        fh.close();
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI();
+            }
+        });
+
+        try {
+            Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" java -jar Updater.jar");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
