@@ -106,7 +106,7 @@ public class Updater {
                     String downloadName = fileName.getString("dl");
 
                     if (onlineHash.equals(localHash)) {
-                        System.out.println(currentFile + " is update to date!");
+                        System.out.println(currentFile + " is good!");
                     } else {
                         System.out.println(currentFile + " is outdated! Downloading...");
 
