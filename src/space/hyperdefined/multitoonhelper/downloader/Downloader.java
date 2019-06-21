@@ -20,8 +20,7 @@ public class Downloader {
 	}
 
 	public static void downloadFile() throws IOException {
-		File directory = new File("\\programs\\Controller.exe");
-		URL website = new URL("https://danfresneda.com/tt/multicontroller/ToontownMulticontroller_v1.0.9.exe");
+		URL website = new URL("https://danfresneda.com/tt/multicontroller/ToontownMulticontroller.exe");
 		HttpURLConnection connection = (HttpURLConnection) website.openConnection();
 		connection.setRequestMethod("GET");
 		InputStream in =connection.getInputStream();
