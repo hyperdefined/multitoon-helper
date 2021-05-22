@@ -1,11 +1,11 @@
 {
-	"0": {
-                "label": "Account 1",
+	{
+		"label": "Account 1",
 		"username": "username1",
 		"password": "password1"
 	},
 	"1": {
-                "label": "Account 2",
+		"label": "Account 2",
 		"username": "username2",
 		"password": "password2"
 	}

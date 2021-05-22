@@ -1,4 +1,4 @@
-package space.hyperdefined.multitoonhelper.downloader;
+package space.hyperdefined.multitoonhelper;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -1,11 +1,9 @@
-package space.hyperdefined.multitoonhelper.window;
+package space.hyperdefined.multitoonhelper;
 
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Desktop;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -23,10 +21,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
-import space.hyperdefined.multitoonhelper.accountmanager.AccountManager;
-import space.hyperdefined.multitoonhelper.downloader.Downloader;
-
-public class MainWindow {
+public class Main {
 
     public static void addComponentsToPane(Container pane) {
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
@@ -128,7 +123,7 @@ public class MainWindow {
         AccountManager.getAccountsLabels();
 
         Downloader.downloadFile();
-        javax.swing.SwingUtilities.invokeLater(MainWindow::createAndShowGUI);
+        javax.swing.SwingUtilities.invokeLater(Main::createAndShowGUI);
 
         try {
             Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /c start \"\" java -jar TTRUpdater.jar");

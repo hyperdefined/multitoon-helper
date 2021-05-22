@@ -1,4 +1,4 @@
-package space.hyperdefined.multitoonhelper.accountmanager;
+package space.hyperdefined.multitoonhelper;
 
 import java.io.File;
 import java.io.IOException;
