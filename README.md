@@ -1,8 +1,7 @@
-# Multitoon Helper
+# This program is old and not used anymore.
+# Use the new improved version: https://github.com/hyperdefined/CustomLauncherRewrite
 Multitoon Helper is a program aimed at users who have a lot of TTR accounts. This program can track the accounts and allow for more easier time logging into them. This program can also update TTR files. It also comes with MultiController and Multi-Click! 
 
-![screenshot](https://rainbow.pizza/X0F5B.png)
-![screenshot2](https://rainbow.pizza/z7ZcD.png)
 # Prerequisites 
 Before you use this program, you are going to need [Panda3D-1.9.0](https://www.panda3d.org/download.php?sdk&version=1.9.0). Make sure it installs in the default directory.
 # Setting Up
